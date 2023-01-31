@@ -3,6 +3,7 @@ from .views import *
 
 urlpatterns = [
     path('', index, name="docs-index"),
+    path('docsdetails', docs_details, name="docs-details"),
 
 ]
 

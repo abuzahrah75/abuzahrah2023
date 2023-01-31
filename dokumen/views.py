@@ -4,6 +4,8 @@ def index(request):
     return render(request, 'dokumen/index.html')
 
 
+def docs_details(request):
+    return render(request, 'dokumen/docs_details.html')
 
 
 
