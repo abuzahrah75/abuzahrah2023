@@ -1,10 +1,10 @@
 from unicodedata import category
 from django.contrib import admin
 
-from .models import Docs_template, SectJenis, TempSection, Category
+from .models import *
 
 
-
+admin.site.register(Dokumen)
 admin.site.register(Docs_template)
 admin.site.register(Category)
 admin.site.register(TempSection)

@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import *
+from .viewHtmx import *
 
 urlpatterns = [
     path('', index, name="docs-index"),
@@ -7,8 +8,13 @@ urlpatterns = [
 
 ]
 
-htmx_urlpatterns =[
-    path('part_docs', part_docs, name="docs-part-docs")
+htmx_urlpatterns = [
+    # path('detail/<int:pk>', pop_detail, name='dokumen-pop-detail'),
+    # path('edit/<int:pk>', pop_edit, name='dokumen-pop-edit'),
+    # path('delete/<int:pk>', pop_delete, name='dokumen-pop-delete'),
+    # path('delete-confirm/<int:pk>', pop_delete_confirm,
+    #      name='dokumen-delete-confirm'),
+    # path('empty', return_kosong, name="return-empty"),
 ]
 
 urlpatterns += htmx_urlpatterns

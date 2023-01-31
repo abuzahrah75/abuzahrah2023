@@ -9,19 +9,24 @@
         (31 Januari 2023)
         </span>
     </p>
-    <div class="container py-3 px-3">
-        Senarai Dokumen:
+    <section class="section">
+<div class="row">
+    <div class="col">
+        <div class="card">
+        <div class="card-body">
+        <h5 class="card-title">Senarai Dokumen / Projek :</h5>
 
-        <div>
-    <ul>
-        <li>Dokumen</li>
-        <li>smach</li>
-        <li>leluhur</li>
-        <li>zafran</li>
-        <li>zahrah</li>
-    </ul>
+        <div hx-get="{% url 'crud-listAll' 'dokumen' 'Dokumen' %}" hx-trigger="load">
+            <div id="crud_listAll">
+                empty
+            </div>
         </div>
-    </div>
+            
+        </div> <!--card body -->
+		</div> <!--card -->
+	</div> <!-- col -->
+	</div> <!-- row -->
+</section>
     
 </div>
 

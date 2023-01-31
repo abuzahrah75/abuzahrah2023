@@ -1,6 +1,10 @@
 from django.shortcuts import render
 
+
+from .models import *
+
 def index(request):
+    # dokumen = Dokumen.objects.all().order_by('id')
     return render(request, 'dokumen/index.html')
 
 

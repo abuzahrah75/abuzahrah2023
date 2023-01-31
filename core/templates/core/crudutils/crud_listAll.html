@@ -1,0 +1,95 @@
+<!-- start tugasan content -->
+        <form method="POST"
+                    class=""
+                    hx-post="{% url 'crud-add-item' app_name model_name %}"
+                    hx-target="#dokumen"
+                    hx-swap="beforebegin"
+                    hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+                    id="add_form"
+                >
+
+                    <div class="field">
+                    <div class="control">
+                        <input class="form-control" type="text" name="nama" placeholder="Add New Item ...">
+                    </div>
+                    </div>
+                    <button class="btn btn-primary btn-small"><strong>ADD</strong></button>
+        </form>
+
+
+        <div id="modals-here"></div>
+        <div id="tugas-notify"></div>
+
+
+        <table class="table table-hover my-0 table-sm">
+            <thead>
+                <tr>
+                <th>#</th>
+                <th>Item</th>
+                <th>Status</th>
+                <th>Action</th>
+                </tr>
+            </thead>
+            
+            <tbody id="dokumen">
+                {% for todo in dokumen %}
+            <tr id="baris-{{todo.id}}">
+                <td>{{todo.id}}</td>
+
+
+                <td>{{todo.nama}}</td>
+
+                <td><span>{{todo.get_status_dokumen_display}}</span></td>
+
+                <td>
+                    <a class="badge bg-dark"
+                    hx-post="{% url 'crud-detail' app_name model_name todo.id %}"
+                    hx-target="#modals-here"
+                    hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+
+                    data-bs-toggle="modal" data-bs-target="exampleModal"
+                    ><i class="align-middle bx bx-detail">View</i></a>
+
+                    <a class="badge bg-dark"
+                    hx-post="{% url 'crud-edit' app_name model_name  todo.id %}"
+                    hx-target="#modals-here"
+                    hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+
+                    data-bs-toggle="modal" data-bs-target="exampleModal"
+                    ><i class="align-middle bx bx-edit">Edit</i></a>
+
+                    <a class="badge bg-danger"
+                    hx-post="{% url 'crud-delete' app_name model_name  todo.id %}"
+                    hx-target="#modals-here"
+                    hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+                    
+                    data-bs-toggle="modal" data-bs-target="exampleModal"
+                    ><i class="align-middle bx bx-x">Delete</i></a>
+
+                    
+                </td>
+            </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    
+<script>
+    document.body.addEventListener('htmx:afterRequest', (event) =>{
+        document.querySelector('input[name=nama]').value = '';
+    });
+
+    function closeModal() {
+	var container = document.getElementById("modals-here")
+	var backdrop = document.getElementById("modal-backdrop")
+	var modal = document.getElementById("modal")
+
+	modal.classList.remove("show")
+	backdrop.classList.remove("show")
+
+	setTimeout(function() {
+		container.removeChild(backdrop)
+		container.removeChild(modal)
+	}, 200)
+}
+
+</script>
