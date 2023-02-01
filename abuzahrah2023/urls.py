@@ -22,5 +22,6 @@ urlpatterns = [
     path('core/', include('core.urls')),
     path('tugasan/', include('tugasan.urls')),
     path('dokumen/', include('dokumen.urls')),
+    path('mycrud/', include('mycrud.urls')),
 
 ]

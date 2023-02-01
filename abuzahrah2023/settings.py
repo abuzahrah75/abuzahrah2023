@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'core',
     'theme',
+    'mycrud',
     'tugasan',
     'dokumen',
 ]
