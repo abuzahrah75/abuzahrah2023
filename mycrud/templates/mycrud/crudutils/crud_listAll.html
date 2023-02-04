@@ -1,9 +1,10 @@
+{% load mycrud_tags %}
 <!-- start tugasan content -->
         <form method="POST"
                     class=""
-                    hx-post="{% url 'crud-add-item' app_name model_name %}"
+                    hx-post="{% url 'crud-add-item' myconfig.app_name myconfig.model_name %}"
                     hx-target="#dokumen"
-                    hx-swap="beforebegin"
+                    hx-swap="afterbegin"
                     hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
                     id="add_form"
                 >
@@ -24,26 +25,17 @@
         <table class="table table-hover my-0 table-sm">
             <thead>
                 <tr>
-                <th>#</th>
-                <th>Item</th>
-                <th>Status</th>
-                <th>Action</th>
+                {% include myconfig.header_display %}
                 </tr>
             </thead>
             
             <tbody id="dokumen">
                 {% for todo in dokumen %}
             <tr id="baris-{{todo.id}}">
-                <td>{{todo.id}}</td>
-
-
-                <td>{{todo.nama}}</td>
-
-                <td><span>{{todo.get_status_dokumen_display}}</span></td>
-
+                {% include myconfig.data_fields %}
                 <td>
                     <a class="badge bg-dark"
-                    hx-post="{% url 'crud-detail' app_name model_name todo.id %}"
+                    hx-post="{% url 'crud-detail' myconfig.app_name myconfig.model_name todo.id %}"
                     hx-target="#modals-here"
                     hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
 
@@ -51,7 +43,7 @@
                     ><i class="align-middle bx bx-detail">View</i></a>
 
                     <a class="badge bg-dark"
-                    hx-post="{% url 'crud-edit' app_name model_name  todo.id %}"
+                    hx-post="{% url 'crud-edit' myconfig.app_name myconfig.model_name  todo.id %}"
                     hx-target="#modals-here"
                     hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
 
@@ -59,7 +51,7 @@
                     ><i class="align-middle bx bx-edit">Edit</i></a>
 
                     <a class="badge bg-danger"
-                    hx-post="{% url 'crud-delete' app_name model_name  todo.id %}"
+                    hx-post="{% url 'crud-delete' myconfig.app_name myconfig.model_name  todo.id %}"
                     hx-target="#modals-here"
                     hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
                     

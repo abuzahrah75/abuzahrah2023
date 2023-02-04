@@ -2,27 +2,31 @@ from django.shortcuts import render
 from django.views.decorators.http import require_http_methods
 
 from django.apps import apps
+from .dummy import dummy_config
 
 @require_http_methods(['POST'])
 def add_item(request, app_name, model_name):
+    model_config = dummy_config(0)
     Mymodel = apps.get_model(app_name, model_name)
     tugas = None
     mytugas = request.POST.get('nama', '')
     if mytugas:
         tugas = Mymodel.objects.create(nama=mytugas)
 
-    return render(request, 'mycrud/crudutils/tugasan.html', {'todo': tugas,  "app_name": app_name, "model_name": model_name})
+    return render(request, 'mycrud/crudutils/tugasan.html', {'todo': tugas, "myconfig": model_config})
 
 def return_kosong(request):
     return render(request, 'mycrud/crudutils/kosong.html')
 
 
 def crud_list_all(request, app_name, model_name):
-    Mymodel = apps.get_model(app_name, model_name)
+    model_config= dummy_config(0)
+    # Mymodel = apps.get_model(app_name, model_name)
+    Mymodel = apps.get_model(model_config["app_name"], model_config["model_name"])
     tugasan = Mymodel.objects.all().order_by('id')
-    # tugasan = Mymodel.objects.getAll()
-    
-    return render(request, 'mycrud/crudutils/crud_listAll.html', {"dokumen": tugasan, "app_name": app_name, "model_name": model_name})
+   
+   
+    return render(request, 'mycrud/crudutils/crud_listAll.html', {"dokumen": tugasan, "myconfig": model_config})
 
 
 def crud_detail(request, app_name, model_name, pk):
