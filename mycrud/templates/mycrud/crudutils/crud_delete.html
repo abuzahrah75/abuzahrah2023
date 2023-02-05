@@ -3,14 +3,14 @@
 	<div class="modal-dialog modal-dialog-centered">
 	  <div class="modal-content">
 		<div class="modal-header">
-		  <h5 class="modal-title">Delete Task</h5>
+		  <h5 class="modal-title">Delete Task- {{myconfig.app_name}} : {{myconfig.model_name}}</h5>
 		</div>
 		<div class="modal-body">
-		  <p>ARE YOU SURE TO DELETE {{tugas.nama}} ??? </p>
+		  <p>ARE YOU SURE TO DELETE {{tugas}} ??? </p>
 		</div>
 		<div class="modal-footer">
           <button class="button is-danger"
-                {% comment %} hx-get="{% url 'crud-delete-confirm' app_name model_name tugas.id %}" {% endcomment %}
+                {% comment %} hx-get="{% url 'crud-delete-confirm' myconfig.id tugas.id %}" {% endcomment %}
                 hx-target="#tugas-notify"
                 hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
 
@@ -27,7 +27,7 @@
     {
        
         document.getElementById('baris-{{tugas.id}}').remove();
-        htmx.ajax('GET', '{% url "crud-delete-confirm" app_name model_name tugas.id %}', '#tugas-notify');
+        htmx.ajax('GET', '{% url "crud-delete-confirm" myconfig.id tugas.id %}', '#tugas-notify');
         closeModal();
     }
         

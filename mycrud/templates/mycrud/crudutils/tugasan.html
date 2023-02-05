@@ -5,7 +5,7 @@
 
     <td>
                     <a class="badge bg-dark"
-                    hx-post="{% url 'crud-detail' myconfig.app_name myconfig.model_name todo.id %}"
+                    hx-post="{% url 'crud-detail' myconfig.id todo.id %}"
                     hx-target="#modals-here"
                     hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
 
@@ -13,7 +13,7 @@
                     ><i class="align-middle bx bx-detail">View</i></a>
 
                     <a class="badge bg-dark"
-                    hx-post="{% url 'crud-edit' myconfig.app_name myconfig.model_name todo.id %}"
+                    hx-post="{% url 'crud-edit' myconfig.id todo.id %}"
                     hx-target="#modals-here"
                     hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
 
@@ -21,7 +21,7 @@
                     ><i class="align-middle bx bx-edit">Edit</i></a>
 
                     <a class="badge bg-danger"
-                    hx-post="{% url 'crud-delete' myconfig.app_name myconfig.model_name todo.id %}"
+                    hx-post="{% url 'crud-delete' myconfig.id todo.id %}"
                     hx-target="#modals-here"
                     hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
                     
