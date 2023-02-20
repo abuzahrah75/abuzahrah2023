@@ -1,0 +1,20 @@
+ <div class="modal-content">
+ <div class="modal-header">Delete Task for {{myconfig.tajuk}}</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  </div>
+  <div class="modal-body">
+    <div class="mb-3">
+       <p>ARE YOU SURE TO DELETE {{tugas}} ??? </p>
+    </div>
+  </div>
+
+  
+  <div class="modal-footer">
+    <button class="button is-danger"
+        hx-get="{% url 'crud-delete-confirm' myconfig.id tugas.id %}"
+        >Delete</button> 
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+      Close
+    </button>
+  </div>
+</div>

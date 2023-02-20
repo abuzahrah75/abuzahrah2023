@@ -1,12 +1,15 @@
 from django.shortcuts import render
 from django.views.decorators.http import require_http_methods
 
+from django.contrib.auth.decorators import login_required
+
 from .todo import todos
 
-
+@login_required(login_url="login/")
 def index(request):
     # return render(request, 'core/index2.html')
-    return render(request, 'core/components/blank.html')
+    # print(request)
+    return render(request, 'core/components/index.html')
 
 
 @require_http_methods(['POST'])

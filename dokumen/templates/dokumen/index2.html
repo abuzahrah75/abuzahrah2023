@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+      <div class="px-5 my-1 text-center">
+        <h1>Online Documents</h1>
+        <p>A sample project that shows how to support modal forms with Django+HTMX with minimal JavaScript code.</p>
+      </div>
+<div hx-get="{% url 'crud-index2' 1 %}" hx-trigger="load" hx-swap='outerHTML'>
+
+</div>
+
+{% endblock content %}

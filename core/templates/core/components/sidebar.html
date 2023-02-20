@@ -7,22 +7,22 @@
       <li class="nav-item">
         <a class="nav-link " href="/">
           <i class="bi bi-grid"></i>
-          <span>Dashboard</span>
+          <span>Dashboard / Home</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Tugasan</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-menu-button-wide"></i><span>Kelas</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="{% url 'tugasan-index' %}">
+            <a href="{% url 'kelas-index' %}">
               <i class="bi bi-circle"></i><span>Dashboard</span>
             </a>
           </li>
           <li>
-            <a href="{% url 'tugasan-index' %}">
+            <a href="{% url 'kelas-index' %}">
               <i class="bi bi-circle"></i><span>Details</span>
             </a>
           </li>
@@ -32,11 +32,11 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#dokumen-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Dokumen</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-journal-text"></i><span>Keahlian</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="dokumen-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="{% url 'docs-index' %}">
+            <a href="{% url 'ahli-index' %}">
               <i class="bi bi-circle"></i><span>Dashboard</span>
             </a>
           </li>

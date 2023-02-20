@@ -11,6 +11,7 @@ urlpatterns = [
 
 htmx_urlpatterns = [
     path('senarai/<int:myid>', crud_list_all, name='crud-listAll'), 
+    path('index2/<int:myid>', index2, name='crud-index2'),
     path('detals/<int:myid>/<int:pk>', crud_detail, name='crud-detail'), 
     path('edit/<int:myid>/<int:pk>', crud_edit, name='crud-edit'), 
     path('delete/<int:myid>/<int:pk>', crud_delete, name='crud-delete'), 

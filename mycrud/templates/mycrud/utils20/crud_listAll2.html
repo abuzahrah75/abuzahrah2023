@@ -1,0 +1,19 @@
+{% for todo in dokumen %}
+            <tr id="movie-{{ todo.id }}" class="movie-row">
+                {% include myconfig.data_fields %}
+                <td>
+                    <a class="badge bg-primary"
+                    hx-get="{% url 'crud-detail' myconfig.id todo.id %}"
+                    hx-target="#dialog"
+                    ><i class="align-middle bx bx-detail">View</i></a>
+                    <a class="badge bg-danger"
+                    hx-get="{% url 'crud-edit' myconfig.id todo.id %}"
+                    hx-target="#dialog"
+                    ><i class="align-middle bx bx-detail">Edit</i></a>
+
+{% comment %} 
+<button class="btn btn-primary btn-sm" hx-get="{% url 'crud-edit' myconfig.id  todo.id %}" hx-target="#dialog">Edit</button> {% endcomment %}
+                </td>
+            </tr>
+{% endfor %}
+       

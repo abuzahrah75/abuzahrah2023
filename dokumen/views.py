@@ -5,7 +5,7 @@ from .models import *
 
 def index(request):
     # dokumen = Dokumen.objects.all().order_by('id')
-    return render(request, 'dokumen/index.html')
+    return render(request, 'dokumen/index2.html')
 
 
 def docs_details(request):
