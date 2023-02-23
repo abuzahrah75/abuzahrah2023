@@ -4,3 +4,7 @@ psycopg2==2.9.5
 django-bootstrap5==21.3
 django-crispy-forms==1.7.2
 django-appconf==1.0.5
+pandas==1.5.3
+Pillow==9.4.0
+reportlab==3.6.12
+django-widget-tweaks==1.4.12
