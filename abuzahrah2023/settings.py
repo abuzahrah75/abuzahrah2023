@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'dbtemplates',
     'crispy_forms',
-    'widget_tweaks',
+    # 'widget_tweaks',
     'pengguna',
 
     'core',
