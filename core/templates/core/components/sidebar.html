@@ -10,19 +10,19 @@
           <span>Dashboard / Home</span>
         </a>
       </li><!-- End Dashboard Nav -->
-
+      {% if user %}
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Kelas</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-menu-button-wide"></i><span>Dokumen</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="{% url 'kelas-index' %}">
+            <a href="{% url 'docs-index' %}">
               <i class="bi bi-circle"></i><span>Dashboard</span>
             </a>
           </li>
           <li>
-            <a href="{% url 'kelas-index' %}">
+            <a href="{ url 'kelas-index' %}">
               <i class="bi bi-circle"></i><span>Details</span>
             </a>
           </li>
@@ -32,11 +32,11 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#dokumen-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Keahlian</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-journal-text"></i><span>Tugasan</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="dokumen-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="{% url 'ahli-index' %}">
+            <a href="{% url 'tugasan-index' %}">
               <i class="bi bi-circle"></i><span>Dashboard</span>
             </a>
           </li>
@@ -48,6 +48,8 @@
        
         </ul>
       </li><!-- End Forms Nav -->
+
+{% endif %}
 
       <li class="nav-heading">Pages</li>
 
