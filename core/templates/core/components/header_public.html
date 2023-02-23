@@ -1,0 +1,20 @@
+{% load static %}
+<!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="/" class="logo d-flex align-items-center">
+        <img src="{% static 'img/logo.png' %}" alt="">
+        <span class="d-none d-lg-block">AbuZahrah 2023</span>
+      </a>
+      
+    </div><!-- End Logo -->
+
+
+              <a class="dropdown-item d-flex align-items-center" href="{% url 'login' %}">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>LOGIN</span>
+              </a>
+           
+
+  </header><!-- End Header -->

@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 
 from .todo import todos
 
-@login_required(login_url="login/")
+# @login_required(login_url="login/")
 def index(request):
     # return render(request, 'core/index2.html')
     # print(request)

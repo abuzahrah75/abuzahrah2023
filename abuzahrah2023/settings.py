@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'dbtemplates',
     'crispy_forms',
     'widget_tweaks',
+    'pengguna',
 
     'core',
     'theme',
