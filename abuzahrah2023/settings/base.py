@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     # 'widget_tweaks',
     'pengguna',
+    'dbbackup',
 
     'core',
     'theme',
@@ -147,10 +148,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'abuzahrah2023/theme/static/'),
-]
-STATIC_ROOT = os.path.join(BASE_DIR, 'abuzahrah2023/theme/static')
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'abuzahrah2023/theme/static/'),
+# ]
+STATIC_ROOT = os.path.join(BASE_DIR, '/static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
