@@ -1,7 +1,7 @@
 from .base import *
 import os
 # SECURITY WARNING: don't run with debug turned on in production!/
-DEBUG = False
+DEBUG = True
 # DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 ALLOWED_HOSTS = ["abuzahrah.com"]
 
