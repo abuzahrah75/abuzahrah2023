@@ -46,6 +46,10 @@ INSTALLED_APPS = [
     # 'widget_tweaks',
     'pengguna',
     'dbbackup',
+    'mptt',
+
+    # 'tinymce',
+    # 'redactor',
 
     'core',
     'theme',

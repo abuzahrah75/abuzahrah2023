@@ -11,4 +11,4 @@ class ProfileAdmin(admin.ModelAdmin):
 
 admin.site.register(Profile, ProfileAdmin)
 
-admin.site.site_header="SMaCH 2023 Administration"
+admin.site.site_header="AbuZahrah 2023 Administration"

@@ -1,4 +1,5 @@
 from django.db import models
+from mptt.models import MPTTModel, TreeForeignKey
 
 
 
@@ -15,22 +16,29 @@ class Dokumen(models.Model):
     nama = models.CharField(max_length=250, default='Documents Template')
     keterangan = models.CharField(max_length=250, default='-')
     status_dokumen = models.CharField(max_length=2, choices=STATUS_DOCS, default=0)
+    kategori = TreeForeignKey('Category', null=True,blank=True, on_delete=models.DO_NOTHING)
+
 
     def __str__(self):
         return f'{self.nama}'
 
-class Category(models.Model):
-    nama = models.CharField(max_length=250, default='Documents Template')
+class Category(MPTTModel):
+    name = models.CharField(max_length=100, unique=True)
+    parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
 
+    class MPTTMeta:
+        order_insertion_by = ['name']
+    
     def __str__(self):
-        return f'{self.nama}'
+        return f'{self.name}'
 
 
 class SectJenis(models.Model):
-    nama = models.CharField(max_length=250, default='Documents Template')
+    name = models.CharField(max_length=100, unique=True)
+    parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
 
-    def __str__(self):
-        return f'{self.nama}'
+    class MPTTMeta:
+        order_insertion_by = ['name']
 
 
 class Docs_template(models.Model):
