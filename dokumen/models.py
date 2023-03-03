@@ -33,7 +33,7 @@ class Category(MPTTModel):
         return f'{self.name}'
 
 
-class SectJenis(models.Model):
+class SectJenis(MPTTModel):
     name = models.CharField(max_length=100, unique=True)
     parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
 
@@ -41,9 +41,18 @@ class SectJenis(models.Model):
         order_insertion_by = ['name']
 
 
-class Docs_template(models.Model):
+class Docs_template(MPTTModel):
     nama = models.CharField(max_length=250, default='Documents Template')
-    kategori = models.ForeignKey(Category, on_delete=models.CASCADE)
+    # kategori = models.ForeignKey(Category, on_delete=models.CASCADE)
+    parent = TreeForeignKey('self', on_delete=models.CASCADE,
+                            null=True, blank=True, related_name='children')
+    jenis_item = models.PositiveSmallIntegerField(choices=((0, 'N.A.'), (1, 'Struktur'), (2, 'Data')), default=1)
+    extra_info =models.JSONField(default=dict)
+
+
+
+    class MPTTMeta:
+        order_insertion_by = ['nama']
 
     def __str__(self):
         return f'{self.nama}'

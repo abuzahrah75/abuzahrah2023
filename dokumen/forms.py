@@ -10,4 +10,4 @@ from .models import Dokumen
 class Dokumen2Form(forms.ModelForm):
     class Meta:
         model = Dokumen
-        fields = ['nama', 'keterangan', 'status_dokumen']
+        fields = ['nama', 'keterangan','kategori', 'status_dokumen']
