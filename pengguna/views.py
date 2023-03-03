@@ -43,3 +43,7 @@ def profile(request):
         #'profil' : Profile
     }
     return render(request, 'pengguna/profile.html', context)
+
+def profile2(request):
+
+    return render(request, 'profile.html')
