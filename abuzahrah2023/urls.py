@@ -25,6 +25,7 @@ urlpatterns = [
     path('tugasan/', include('tugasan.urls')),
     path('dokumen/', include('dokumen.urls')),
     path('mycrud/', include('mycrud.urls')),
+    path('charts/', include('charts.urls')),
 
     path('register/', user_views.register, name='register'),
     path('accounts/profile/', user_views.profile, name='profile'),
