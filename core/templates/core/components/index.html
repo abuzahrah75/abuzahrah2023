@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block extrascript %}
+   <script src="{% static 'vendor/chart.js/chart.umd.js' %}"></script>
+{% endblock extrascript %}
+
 {% block content %}
 <div class="pagetitle">
       <h1>Abu Zahrah 2023</h1>
@@ -40,42 +44,31 @@
 
     <section class="section">
     <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-6">
+        <div class="card">
+        <div class="card-body">
+        <h5 class="card-title">Graf Prestasi KPI 2022</h5>
+        {% include 'charts/line.html' %}
+        <p>This is an examle page with no contrnt. You can use it as a starter for your custom pages.</p>
+        </div></div></div>
 
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Cawangan</h5>
-              <p>This is an examle page with no contrnt. You can use it as a starter for your custom pages.</p>
-            </div>
-          </div>
 
-        </div>
-
-        <div class="col-lg-4">
+        <div class="col-lg-6">
 
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Kelas</h5>
               <p>This is an examle page with no contrnt. You can use it as a starter for your custom pages.</p>
+              {% include 'charts/bar.html' %}
             </div>
           </div>
 
         </div>
 
-        <div class="col-lg-4">
-
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Aktiviti</h5>
-              <p>This is an examle page with no contrnt. You can use it as a starter for your custom pages.</p>
-            </div>
-          </div>
-
-        </div>
     </div>
 
     <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-6">
 
           <div class="card">
             <div class="card-body">
